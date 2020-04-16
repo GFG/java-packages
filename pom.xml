@@ -9,8 +9,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>encoded-id</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/GFG/java-encoded-id</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,6 +25,14 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GFG Seller Center ID encode/decode lib</name>
+      <url>https://maven.pkg.github.com/GFG/java-encoded-id</url>
+    </repository>
+  </distributionManagement>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
