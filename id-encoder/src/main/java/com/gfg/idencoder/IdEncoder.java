@@ -1,10 +1,10 @@
-package com.gfg.encodedid;
+package com.gfg.idencoder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class EncodedId {
+public class IdEncoder {
     private static final int SHORT = 5;
     private static final int MEDIUM = 7;
 

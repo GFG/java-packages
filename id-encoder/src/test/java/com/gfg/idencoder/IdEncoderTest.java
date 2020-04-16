@@ -1,4 +1,4 @@
-package com.gfg.encodedid;
+package com.gfg.idencoder;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class EncodedIdTest {
+public class IdEncoderTest {
     @Parameterized.Parameters(name = "{index}: Test with ID={0}, expected encoded result: {1}")
     public static Iterable<Object[]> data() {
         return Arrays.asList(new Object[][]{
@@ -24,18 +24,18 @@ public class EncodedIdTest {
     private final Long id;
     private final String encodedId;
 
-    public EncodedIdTest(Long id, String expectedEncodedId) {
+    public IdEncoderTest(Long id, String expectedEncodedId) {
         this.id = id;
         this.encodedId = expectedEncodedId;
     }
 
     @Test
     public void shouldEncodeMediumLength() {
-        assertEquals(encodedId, EncodedId.encodeMedium(id));
+        assertEquals(encodedId, IdEncoder.encodeMedium(id));
     }
 
     @Test
     public void shouldDecodeMediumLength() {
-        assertEquals(id, EncodedId.decodeMedium(encodedId));
+        assertEquals(id, IdEncoder.decodeMedium(encodedId));
     }
 }

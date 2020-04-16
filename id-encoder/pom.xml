@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.gfg.encoded-id</groupId>
-  <artifactId>encoded-id</artifactId>
+  <groupId>com.gfg.id-encoder</groupId>
+  <artifactId>id-encoder</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>encoded-id</name>
-  <url>https://github.com/GFG/java-encoded-id</url>
+  <name>id-encoder</name>
+  <url>https://github.com/GFG/java-packages</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,9 +30,15 @@
     <repository>
       <id>github</id>
       <name>GFG Seller Center ID encode/decode lib</name>
-      <url>https://maven.pkg.github.com/GFG/java-encoded-id</url>
+      <url>https://maven.pkg.github.com/GFG/java-packages</url>
     </repository>
   </distributionManagement>
+
+  <scm>
+    <url>https://github.com/GFG/java-packages</url>
+    <connection>scm:git:git://github.com/GFG/java-packages.git</connection>
+    <developerConnection>scm:git:git@github.com:GFG/java-packages.git</developerConnection>
+  </scm>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
