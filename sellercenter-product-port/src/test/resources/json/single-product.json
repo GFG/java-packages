@@ -1,0 +1,35 @@
+{
+  "id": 1,
+  "source_id": "714096",
+  "sku": "NU449AA30AEF-714096",
+  "seller_sku": "KLIO9_DELETED_2018-01-31_01-53-19",
+  "seller_id": 1,
+  "product_set_id": 1,
+  "status": "deleted",
+  "name": "Dani super dress 2",
+  "variation": "3X",
+  "primary_category_id": 4,
+  "categories": "[]",
+  "brand_id": 1448,
+  "price": {
+    "currency": "AUD",
+    "amount": 2090,
+    "special": {
+      "amount": null,
+      "from": null,
+      "to": null
+    }
+  },
+  "tax_class_id": 1,
+  "shipment_type_id": 2,
+  "product_identifier": "",
+  "approval_status": "rejected",
+  "attribute_set_id": 2,
+  "src_updated_at": "2018-01-31T01:54:10Z",
+  "created_at": "2014-09-09T14:05:26Z",
+  "updated_at": "2018-01-31T01:53:19Z",
+  "volumetric_weight": null,
+  "fob_price": null,
+  "fob_special_price": null,
+  "uuid": "979ab6ff-2f7f-11e9-a621-0afefbb27832"
+}

@@ -1,4 +1,4 @@
-package com.gfg.sellercenter.product.port;
+package com.gfg.sellercenter.product.port.entity;
 
 import org.junit.Test;
 
@@ -13,11 +13,11 @@ public class ProductTest {
                 new Price(new Money(10.00, "EUR"), null)
         );
 
-        assertFalse(product.hasSpecialPrice());
+        assertFalse(product.hasSpecialPrice(ZonedDateTime.now()));
     }
 
     @Test
-    public void shouldHaveSpecialPrice() {
+    public void shouldNotHaveSpecialPriceWithEmptyDates() {
         Product product = createProduct(
                 new Price(
                         new Money(10.00, "EUR"),
@@ -25,7 +25,19 @@ public class ProductTest {
                 )
         );
 
-        assertTrue(product.hasSpecialPrice());
+        assertFalse(product.hasSpecialPrice(ZonedDateTime.now()));
+    }
+
+    @Test
+    public void shouldNotHaveSpecialPriceWithEmptyValue() {
+        Product product = createProduct(
+                new Price(
+                        new Money(10.00, "EUR"),
+                        new SpecialPrice(null, null, null)
+                )
+        );
+
+        assertFalse(product.hasSpecialPrice(ZonedDateTime.now()));
     }
 
     @Test
@@ -33,14 +45,7 @@ public class ProductTest {
         Money amount = new Money(10.00, "EUR");
 
         Product product = createProduct(
-                new Price(
-                        amount,
-                        new SpecialPrice(
-                                8.00,
-                                null,
-                                null
-                        )
-                )
+                new Price(amount, new SpecialPrice(8.00, null, null))
         );
 
         assertEquals(amount, product.getCurrentPrice());

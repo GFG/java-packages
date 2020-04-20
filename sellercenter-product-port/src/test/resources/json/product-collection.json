@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "source_id": "714096",
+    "sku": "NU449AA30AEF-714096",
+    "seller_sku": "KLIO9_DELETED_2018-01-31_01-53-19",
+    "seller_id": 1,
+    "product_set_id": 1,
+    "status": "deleted",
+    "name": "Dani super dress 2",
+    "variation": "3X",
+    "primary_category_id": 4,
+    "categories": "[]",
+    "brand_id": 1448,
+    "price": {
+      "currency": "AUD",
+      "amount": 2090,
+      "special": {
+        "amount": null,
+        "from": null,
+        "to": null
+      }
+    },
+    "tax_class_id": 1,
+    "shipment_type_id": 2,
+    "product_identifier": "",
+    "approval_status": "rejected",
+    "attribute_set_id": 2,
+    "src_updated_at": "2018-01-31T01:54:10Z",
+    "created_at": "2014-09-09T14:05:26Z",
+    "updated_at": "2018-01-31T01:53:19Z",
+    "volumetric_weight": null,
+    "fob_price": null,
+    "fob_special_price": null,
+    "uuid": "979ab6ff-2f7f-11e9-a621-0afefbb27832"
+  },
+  {
+    "id": 2,
+    "source_id": null,
+    "sku": null,
+    "seller_sku": "DSS1",
+    "seller_id": 1,
+    "product_set_id": 3,
+    "status": "inactive",
+    "name": "Dani Super Skirt",
+    "variation": "XXL/38",
+    "primary_category_id": 11,
+    "categories": "[233]",
+    "brand_id": 1374,
+    "price": {
+      "currency": "USD",
+      "amount": 10,
+      "special": {
+        "amount": 4.99,
+        "from": "2018-03-14T00:00:00Z",
+        "to": "2018-03-18T00:00:00Z"
+      }
+    },
+    "tax_class_id": 1,
+    "shipment_type_id": 2,
+    "product_identifier": "",
+    "approval_status": "pending",
+    "attribute_set_id": 2,
+    "src_updated_at": "2018-06-15T22:32:48Z",
+    "created_at": "2014-09-10T11:34:09Z",
+    "updated_at": "2018-06-15T22:19:55Z",
+    "volumetric_weight": 20.22,
+    "fob_price": null,
+    "fob_special_price": null,
+    "uuid": "979ab9cc-2f7f-11e9-a621-0afefbb27832"
+  }
+]

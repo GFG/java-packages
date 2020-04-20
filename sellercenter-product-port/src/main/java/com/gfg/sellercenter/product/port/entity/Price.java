@@ -1,4 +1,4 @@
-package com.gfg.sellercenter.product.port;
+package com.gfg.sellercenter.product.port.entity;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
