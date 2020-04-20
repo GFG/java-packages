@@ -30,14 +30,17 @@ public class Product {
 
     private final Double volumetricWeight;
 
-    public boolean hasSpecialPrice() {
-        return price.getSpecialPrice() != null;
+    public boolean hasSpecialPrice(ZonedDateTime timePoint) {
+        return price.getSpecialPrice() != null
+                && price.getSpecialPrice().rangeCovers(timePoint);
     }
 
     public Money getCurrentPrice() {
-        if (hasSpecialPrice()) {
+        ZonedDateTime now = ZonedDateTime.now();
+
+        if (hasSpecialPrice(now)) {
             try {
-                return getSpecialPrice();
+                return getSpecialPrice(now);
             } catch (IllegalAccessException e) {
                 throw new IllegalStateException(
                         "Product price changed during runtime, which lead to invalid state",
@@ -49,37 +52,17 @@ public class Product {
         return price.getAmount();
     }
 
-    private Money getSpecialPrice() throws IllegalAccessException {
-        if (!hasSpecialPrice()) {
+    private Money getSpecialPrice(ZonedDateTime timePoint) throws IllegalAccessException {
+        if (!hasSpecialPrice(timePoint)) {
             throw new IllegalAccessException(
                     "getSpecialPrice method call should be wrapped by hasSpecialPrice if condition"
             );
         }
 
-        ZonedDateTime now = ZonedDateTime.now();
-        SpecialPrice specialPrice = price.getSpecialPrice();
-        String currency = price.getAmount().getCurrency();
-        ZonedDateTime specialPriceFrom = specialPrice.getFrom();
-        ZonedDateTime specialPriceTo = specialPrice.getTo();
-
-        if (specialPriceFrom != null && specialPriceTo != null) {
-            if (specialPriceFrom.isBefore(now) && specialPriceTo.isAfter(now)) {
-                return new Money(
-                        specialPrice.getAmount(),
-                        currency
-                );
-            }
-
-            return price.getAmount();
-        } else if (specialPriceTo != null && specialPriceTo.isAfter(now)) {
+        if (price.getSpecialPrice().rangeCovers(ZonedDateTime.now())) {
             return new Money(
-                    specialPrice.getAmount(),
-                    currency
-            );
-        } else if (specialPriceFrom != null && specialPriceFrom.isBefore(now)) {
-            return new Money(
-                    specialPrice.getAmount(),
-                    currency
+                    price.getSpecialPrice().getAmount(),
+                    price.getAmount().getCurrency()
             );
         }
 
