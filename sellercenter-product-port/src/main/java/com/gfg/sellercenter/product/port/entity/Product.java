@@ -60,7 +60,7 @@ public class Product {
             );
         }
 
-        if (price.getSpecialPrice().rangeCovers(ZonedDateTime.now())) {
+        if (price.getSpecialPrice().rangeCovers(timePoint)) {
             return new Money(
                     price.getSpecialPrice().getAmount(),
                     price.getAmount().getCurrency()
