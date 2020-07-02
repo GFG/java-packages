@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "email": "seller-1@mailinator.com",
+    "name": "Midcom",
+    "company_name": "Midcom",
+    "short_code": "NG1003C",
+    "src_id": "117"
+  },
+  {
+    "id": 2,
+    "email": null,
+    "name": "Comércio Digital",
+    "company_name": null,
+    "short_code": "NG1003X",
+    "src_id": 137
+  }
+]
