@@ -11,14 +11,14 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class CreateCommandTest {
+public class CreateReturnCommandTest {
     private static final String RESOURCES_PATH = "src/test/resources/json/";
 
     @Test
     public void convertedToProperJson() throws IOException {
-        CreateCommand createCommand = new CreateCommand(
+        CreateReturnCommand createReturnCommand = new CreateReturnCommand(
                 "123",
                 null,
                 new ArrayList<>(Arrays.asList(
@@ -38,8 +38,8 @@ public class CreateCommandTest {
                 new ArrayList<>(Arrays.asList(new Attribute("request level attribute 1", "去手還兒這精象"), new Attribute("request level attribute 1", "мольба отъезд")))
         );
         ObjectMapper mapper = new ObjectMapper();
-        String convertedToJson = mapper.writeValueAsString(createCommand);
-        String expectedJson = readFile("expectedConsignmentCreateRequest.json");
+        String convertedToJson = mapper.writeValueAsString(createReturnCommand);
+        String expectedJson = readFile("expectedConsignmentCreateReturnRequest.json");
         assertEquals(expectedJson, convertedToJson);
     }
 

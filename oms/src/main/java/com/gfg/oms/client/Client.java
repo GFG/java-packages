@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.gfg.oms.Config;
 import com.gfg.oms.Request;
-import com.gfg.oms.Response;
 import com.gfg.oms.consignment.request.CreateCommand;
 import com.gfg.oms.consignment.request.CreateReturnCommand;
 import com.gfg.oms.response.Error;
@@ -17,8 +16,6 @@ import lombok.AllArgsConstructor;
 import javax.validation.constraints.NotNull;
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @AllArgsConstructor
@@ -59,8 +56,7 @@ public class Client {
         return response;
     }
 
-
-    public Response doCreateConsignmentReturnRequest(CreateReturnCommand createConsignmentReturnRequest) throws JsonProcessingException {
+    public CreateConsignmentResponse doCreateConsignmentReturnRequest(CreateReturnCommand createConsignmentReturnRequest) throws JsonProcessingException {
         return doCreateConsignmentRequest(createConsignmentReturnRequest);
     }
 

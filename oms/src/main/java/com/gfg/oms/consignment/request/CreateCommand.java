@@ -23,7 +23,7 @@ public class CreateCommand extends Request implements Serializable {
 
     @JsonProperty("shopSellerId")
     @NotNull
-    private Integer shopSellerId;
+    private String shopSellerId;
 
     @JsonProperty("purchaseOrderNumber")
     private String purchaseOrderNumber;
