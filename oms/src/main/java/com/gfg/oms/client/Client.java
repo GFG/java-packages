@@ -9,6 +9,7 @@ import com.gfg.oms.Config;
 import com.gfg.oms.Request;
 import com.gfg.oms.Response;
 import com.gfg.oms.consignment.request.CreateCommand;
+import com.gfg.oms.consignment.request.CreateReturnCommand;
 import com.gfg.oms.response.Error;
 import com.gfg.oms.consignment.response.CreateConsignmentResponse;
 import lombok.AllArgsConstructor;
@@ -59,7 +60,7 @@ public class Client {
     }
 
 
-    public Response doCreateConsignmentReturnRequest(CreateCommand createConsignmentReturnRequest) throws JsonProcessingException {
+    public Response doCreateConsignmentReturnRequest(CreateReturnCommand createConsignmentReturnRequest) throws JsonProcessingException {
         return doCreateConsignmentRequest(createConsignmentReturnRequest);
     }
 
