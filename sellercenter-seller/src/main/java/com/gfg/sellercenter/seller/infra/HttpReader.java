@@ -5,11 +5,12 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class HttpReader {
-    private String readAll(Reader rd) throws IOException {
+    private String readAll(BufferedReader reader) throws IOException {
         StringBuilder sb = new StringBuilder();
-        int cp;
-        while ((cp = rd.read()) != -1) {
-            sb.append((char) cp);
+        String line = reader.readLine();
+        while (line != null) {
+            sb.append(line);
+            line = reader.readLine();
         }
         return sb.toString();
     }
