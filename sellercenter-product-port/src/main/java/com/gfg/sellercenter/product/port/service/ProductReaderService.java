@@ -81,6 +81,7 @@ public class ProductReaderService implements ProductReaderServiceInterface {
     private String joinIds(int[] productIds) {
         StringJoiner intStringJoiner = new StringJoiner(",");
         Arrays.stream(productIds)
+                .distinct()
                 .mapToObj(String::valueOf)
                 .forEach(intStringJoiner::add);
         return intStringJoiner.toString();
