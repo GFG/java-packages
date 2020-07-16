@@ -1,9 +1,11 @@
 package com.gfg.sellercenter.product.port.service;
 
+import java.net.URL;
 import java.util.*;
 import java.io.IOException;
 
-import org.json.JSONArray;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,23 +55,18 @@ public class ProductReaderService implements ProductReaderServiceInterface {
             throw new IllegalArgumentException("Product ids can not be empty");
         }
 
-        String requestUrl = hostUrl + API_PATH + "?product_ids=[" + joinIds(productIds) + "]";
-
-        JSONArray products = jsonReader.readAll(requestUrl);
-
         Map<Integer, Product> result = new HashMap<>();
+        String requestUrl = hostUrl + API_PATH + "?product_ids=[" + joinIds(productIds) + "]";
+        JsonParser parser = productMapper.getFactory().createParser(new URL(requestUrl));
 
-        products.forEach(rawProduct -> {
-            Product product = null;
-
-            try {
-                product = deserialize((JSONObject) rawProduct);
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException("Unable to retrieve products", e);
-            }
-
+        if (parser.nextToken() != JsonToken.START_ARRAY) {
+            throw new IOException("Not a valid response, missing START_ARRAY");
+        }
+        while (parser.nextToken() == JsonToken.START_OBJECT) {
+            Product product = productMapper.readValue(parser, Product.class);
             result.put(product.getId(), product);
-        });
+        }
+        parser.close();
 
         return result;
     }
