@@ -1,5 +1,7 @@
 package com.gfg.sellercenter.product.port.service;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -70,28 +72,6 @@ public class ProductReaderServiceTest {
         );
 
         assertEquals(product1, service.getById(1));
-    }
-
-    @Test
-    public void shouldReadProductsByIds() throws IOException {
-        JsonHttpReader jsonReaderMock = mock(JsonHttpReader.class);
-        when(jsonReaderMock.readAll("http://localhost:8081/api/products/v1?product_ids=[1,2]"))
-                .thenReturn(
-                        new JSONArray(readFile("product-collection.json"))
-                );
-
-        ProductReaderService service = new ProductReaderService(
-                "http://localhost:8081",
-                jsonReaderMock
-        );
-
-        assertEquals(
-                new HashMap<Integer, Product>() {{
-                    put(1, product1);
-                    put(2, product2);
-                }},
-                service.getProducts(new int[]{1, 2})
-        );
     }
 
     private String readFile(String fileName) throws IOException {
