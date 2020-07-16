@@ -32,8 +32,4 @@ public class JsonHttpReader {
     public JSONObject readOne(String url) throws IOException, JSONException {
         return new JSONObject(readRemote(url));
     }
-
-    public JSONArray readAll(String url) throws IOException, JSONException {
-        return new JSONArray(readRemote(url));
-    }
 }
