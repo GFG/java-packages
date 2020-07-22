@@ -55,4 +55,11 @@ public class ConfigReaderServiceTest {
     private String readFile(String fileName) throws IOException {
         return new String(Files.readAllBytes(Paths.get(RESOURCES_PATH + fileName)));
     }
+
+    @Test
+    public void getInstance() {
+        String url = "some url";
+        ConfigReaderService expectedResult = new ConfigReaderService(url, new JsonHttpReader());
+        assertEquals(ConfigReaderService.class, expectedResult.getClass());
+    }
 }

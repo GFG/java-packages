@@ -25,4 +25,8 @@ public class ConfigReaderService implements ConfigReaderServiceInterface {
         String requestUrl = hostUrl + API_PATH + "?folder=" + folder + "&path=" + path;
         return mapper.readValue(jsonReader.readOne(requestUrl).toString(), ConfigRecord.class);
     }
+
+    public static ConfigReaderServiceInterface getInstance(String hostUrl) {
+        return new ConfigReaderService(hostUrl, new JsonHttpReader());
+    }
 }

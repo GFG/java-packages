@@ -77,4 +77,10 @@ public class ProductReaderServiceTest {
     private String readFile(String fileName) throws IOException {
         return new String(Files.readAllBytes(Paths.get(RESOURCES_PATH + fileName)));
     }
+
+    @Test
+    public void getInstance() {
+        ProductReaderService productReaderService = ProductReaderService.getInstance("some host url");
+        assertEquals(ProductReaderService.class, productReaderService.getClass());
+    }
 }

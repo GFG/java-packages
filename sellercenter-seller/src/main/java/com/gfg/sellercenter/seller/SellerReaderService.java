@@ -43,4 +43,8 @@ public class SellerReaderService implements SellerReaderServiceInterface {
         String requestUrl = hostUrl + API_PATH + "/" + sellerId.toString();
         return mapper.readValue(jsonReader.readRemote(requestUrl), Seller.class);
     }
+
+    public static SellerReaderService getInstance(String hostUrl) {
+        return new SellerReaderService(hostUrl, new HttpReader());
+    }
 }

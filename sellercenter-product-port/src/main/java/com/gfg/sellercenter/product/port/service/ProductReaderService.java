@@ -71,6 +71,10 @@ public class ProductReaderService implements ProductReaderServiceInterface {
         return result;
     }
 
+    public static ProductReaderService getInstance(String hostUrl) {
+        return new ProductReaderService(hostUrl, new JsonHttpReader());
+    }
+
     private Product deserialize(JSONObject json) throws JsonProcessingException {
         return productMapper.readValue(json.toString(), Product.class);
     }

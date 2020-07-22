@@ -150,4 +150,10 @@ public class ClientTest {
     private String readFile(String fileName) throws IOException {
         return new String(Files.readAllBytes(Paths.get(RESOURCES_PATH + fileName)));
     }
+
+    @Test
+    public void getInstance() {
+        Client result = Client.getInstance(new Config("some url", "some password"));
+        assertEquals(Client.class, result.getClass());
+    }
 }

@@ -60,6 +60,10 @@ public class Client {
         return doCreateConsignmentRequest(createConsignmentReturnRequest);
     }
 
+    public static Client getInstance(Config config) {
+        return new Client(config, new ConnectionManager());
+    }
+
     private RawResponse sendRequest(Request request) {
         request.setApiKey(config.getPassword());
         HttpURLConnection connection;
