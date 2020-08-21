@@ -3,6 +3,7 @@ package com.gfg.sellercenter.product.port.entity;
 import org.junit.Test;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
@@ -162,6 +163,7 @@ public class ProductTest {
     private Product createProduct(Price price) {
         return new Product(
                 1,
+                UUID.fromString("a06c96f8-671f-419e-89ef-2786622cce0c"),
                 null,
                 null,
                 price,
