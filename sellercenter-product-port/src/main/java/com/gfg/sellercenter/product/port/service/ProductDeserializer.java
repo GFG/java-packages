@@ -11,6 +11,7 @@ import com.gfg.sellercenter.product.port.entity.SpecialPrice;
 
 import java.io.IOException;
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 public class ProductDeserializer extends StdDeserializer<Product> {
 
@@ -30,6 +31,7 @@ public class ProductDeserializer extends StdDeserializer<Product> {
 
         return new Product(
                 productNode.get("id").intValue(),
+                UUID.fromString(productNode.get("uuid").textValue()),
                 productNode.hasNonNull("source_id")
                         ? productNode.get("source_id").textValue()
                         : null,

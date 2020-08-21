@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.AllArgsConstructor;
 
 import java.time.ZonedDateTime;
+import java.util.UUID;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotEmpty;
 
@@ -12,6 +13,8 @@ import javax.validation.constraints.NotEmpty;
 public class Product {
     @NotNull
     private final Integer id;
+
+    private final UUID uuid;
 
     private final String sourceId;
 

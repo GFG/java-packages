@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
+import java.util.UUID;
 
 import com.gfg.sellercenter.product.port.entity.Product;
 import com.gfg.sellercenter.product.port.infra.JsonHttpReader;
@@ -30,6 +31,7 @@ public class ProductReaderServiceTest {
     static {
         product1 = new Product(
                 1,
+                UUID.fromString("979ab6ff-2f7f-11e9-a621-0afefbb27832"),
                 "714096",
                 "NU449AA30AEF-714096",
                 new Price(
@@ -42,6 +44,7 @@ public class ProductReaderServiceTest {
         );
         product2 = new Product(
                 2,
+                UUID.fromString("979ab9cc-2f7f-11e9-a621-0afefbb27832"),
                 null,
                 null,
                 new Price(
