@@ -3,6 +3,7 @@ package com.gfg.sellercenter.setting.entity;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author Dennis Munchausen <dennis.munchausen@global-fashion-group.com>
