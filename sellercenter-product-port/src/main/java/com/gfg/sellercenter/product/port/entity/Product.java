@@ -33,6 +33,8 @@ public class Product {
 
     private final Double volumetricWeight;
 
+    private final String variation;
+
     public boolean hasSpecialPrice(ZonedDateTime timePoint) {
         return price.getSpecialPrice() != null
                 && price.getSpecialPrice().getAmount() != null

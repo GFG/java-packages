@@ -169,7 +169,8 @@ public class ProductTest {
                 price,
                 "Test",
                 "Jeans",
-                10.00
+                10.00,
+                "40/42"
         );
     }
 }

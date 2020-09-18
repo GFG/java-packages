@@ -57,7 +57,8 @@ public class ProductDeserializer extends StdDeserializer<Product> {
                 productNode.get("name").textValue(),
                 productNode.hasNonNull("volumetric_weight")
                         ? productNode.get("volumetric_weight").doubleValue()
-                        : null
+                        : null,
+                productNode.get("variation").textValue()
         );
     }
 }
