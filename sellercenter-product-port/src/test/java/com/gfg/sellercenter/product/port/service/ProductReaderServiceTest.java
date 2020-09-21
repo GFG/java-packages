@@ -40,7 +40,8 @@ public class ProductReaderServiceTest {
                 ),
                 "KLIO9_DELETED_2018-01-31_01-53-19",
                 "Dani super dress 2",
-                null
+                null,
+                "3X"
         );
         product2 = new Product(
                 2,
@@ -57,7 +58,8 @@ public class ProductReaderServiceTest {
                 ),
                 "DSS1",
                 "Dani Super Skirt",
-                20.22
+                20.22,
+                "XXL/38"
         );
     }
 
