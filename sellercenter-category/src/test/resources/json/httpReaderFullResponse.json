@@ -1,0 +1,20 @@
+[
+  {
+    "id": 2,
+    "category": {
+      "id": 1543,
+      "name": "Smart Home Theatre Systems",
+      "nameEn": "Smart Home Theatre Systems en",
+      "serialNumberRequired": true
+    }
+  },
+  {
+    "id": 1,
+    "category": {
+      "id": 2376,
+      "name": "ndchnenatc",
+      "nameEn": "ndchnenatc en",
+      "serialNumberRequired": false
+    }
+  }
+]
