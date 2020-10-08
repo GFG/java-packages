@@ -1,5 +1,8 @@
 package com.gfg.sellercenter.category;
 
+import com.gfg.sellercenter.category.entity.CategoryDetails;
+import com.gfg.sellercenter.category.entity.CategoryFulfillmentSetting;
+import com.gfg.sellercenter.category.entity.CategoryStatus;
 import com.gfg.sellercenter.category.entity.CategoryWithProductInformation;
 import com.gfg.sellercenter.category.reader.HttpReader;
 import com.gfg.sellercenter.category.service.CategoryService;
@@ -85,6 +88,70 @@ public class SellerCenterReaderTest {
         Map<Integer,CategoryWithProductInformation> categories = service.getProductCategoriesByProductsIds(productIds);
 
         assertEquals(expectedCategories, categories);
+    }
+
+    @Test
+    public void getAllCategoriesDetailsWithData() throws IOException {
+        HttpReader readerMock = Mockito.mock(HttpReader.class);
+        Mockito.when(readerMock.getAllCategoriesDetails())
+                .thenReturn(
+                        getFileContent("json/all-categories.json")
+                );
+
+        CategoryService service = new CategoryService(readerMock);
+
+        Map<Integer, CategoryDetails> categories = service.getAllCategoriesDetails();
+
+        // check root category
+        assertEquals(1, categories.get(1).getId());
+        assertEquals("Root Category", categories.get(1).getName());
+        assertEquals(1, categories.get(1).getSrcId().intValue());
+        assertTrue(categories.get(1).isFulfillmentVisible());
+
+        // check some normal category
+        assertEquals(CategoryStatus.ACTIVE, categories.get(1673).getStatus());
+        assertEquals(4021, categories.get(1673).getLft());
+        assertEquals(4056, categories.get(1673).getRgt());
+        assertFalse(categories.get(1673).isFulfillmentVisible());
+
+        // check not fulfillment visible category
+        assertEquals(CategoryStatus.ACTIVE, categories.get(1).getStatus());
+        assertFalse(categories.get(1525).isFulfillmentVisible());
+
+        // check not synced category
+        assertEquals(CategoryStatus.DELETED, categories.get(1672).getStatus());
+        assertEquals(4019, categories.get(1672).getLft());
+        assertEquals(4020, categories.get(1672).getRgt());
+        assertNull(categories.get(1672).getSrcId());
+    }
+
+    @Test
+    public void getCategoriesFulfillmentSettingWithEmptyData() throws IOException {
+        HttpReader readerMock = Mockito.mock(HttpReader.class);
+        Mockito.when(readerMock.getAllCategoriesDetails())
+                .thenReturn(
+                        getFileContent("json/httpReaderEmptyResponse.json")
+                );
+
+        CategoryService service = new CategoryService(readerMock);
+        Map<Integer, CategoryFulfillmentSetting> result = service.getCategoriesFulfillmentSetting(123);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void getCategoriesFulfillmentSettingWithData() throws IOException {
+        HttpReader readerMock = Mockito.mock(HttpReader.class);
+        Mockito.when(readerMock.getCategoriesFulfillmentSetting(123))
+                .thenReturn(
+                        getFileContent("json/fulfilmentCategoriesSettings.json")
+                );
+
+        CategoryService service = new CategoryService(readerMock);
+        Map<Integer, CategoryFulfillmentSetting> result = service.getCategoriesFulfillmentSetting(123);
+
+        assertEquals(3, result.size());
+        assertTrue(result.get(1771).isFulfillmentEnabled());
+        assertFalse(result.get(567).isFulfillmentEnabled());
     }
 
     private JSONArray getFileContent(String filename) throws IOException {

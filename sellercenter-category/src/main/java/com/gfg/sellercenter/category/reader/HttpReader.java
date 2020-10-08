@@ -22,6 +22,10 @@ public class HttpReader {
 
     private final String fqdnUrl;
 
+    private static final String CATEGORIES_BY_PRODUCT_IDS_PATH = "/api/categories-by-product-ids/v1/";
+    private static final String ALL_CATEGORIES_DETAILS_PATH = "/api/categories/v1";
+    private static final String FULFILMENT_CATEGORIES_SETTINGS_PATH = "/api/sellers/v1/%d/fulfilment-categories";
+
     /**
      * This json array represent a list of products and categories information
      * @param productIds a list of product ids in order to fetch related categories
@@ -33,12 +37,19 @@ public class HttpReader {
         String productIdsConverted = productIds.stream().map(String::valueOf)
                 .collect(Collectors.joining(","));
 
-        return new JSONArray(loadResponse("?product_ids=[" + productIdsConverted + "]"));
+        return new JSONArray(loadResponse(CATEGORIES_BY_PRODUCT_IDS_PATH, "?product_ids=[" + productIdsConverted + "]"));
     }
 
-    private String loadResponse(String extraQuery) throws IOException
+    public JSONArray getAllCategoriesDetails() throws IOException {
+        return new JSONArray(loadResponse(ALL_CATEGORIES_DETAILS_PATH, ""));
+    }
+
+    public JSONArray getCategoriesFulfillmentSetting(int sellerId) throws IOException {
+        return new JSONArray(loadResponse(String.format(FULFILMENT_CATEGORIES_SETTINGS_PATH, sellerId), ""));
+    }
+
+    private String loadResponse(String path, String extraQuery) throws IOException
     {
-        String path = "/api/categories-by-product-ids/v1/";
         URL url = new URL(fqdnUrl + path + extraQuery);
         try (InputStream stream = url.openStream()) {
             BufferedReader bufferedReader = new BufferedReader(

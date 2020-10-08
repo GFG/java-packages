@@ -1,11 +1,15 @@
 package com.gfg.sellercenter.category.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gfg.sellercenter.category.entity.CategoryDetails;
+import com.gfg.sellercenter.category.entity.CategoryFulfillmentSetting;
 import com.gfg.sellercenter.category.entity.CategoryWithProductInformation;
 import com.gfg.sellercenter.category.reader.HttpReader;
 import lombok.AllArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +30,34 @@ public class CategoryService {
         return createCategoryEntity(
             this.httpReader.getProductCategoriesByProductIds(productIds)
         );
+    }
+
+    public Map<Integer, CategoryDetails> getAllCategoriesDetails() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        JSONArray response = this.httpReader.getAllCategoriesDetails();
+        Map<Integer, CategoryDetails> categoriesDetailsMap = new HashMap<>();
+
+        for (Object singleCategory : response) {
+            CategoryDetails category = mapper.readValue(singleCategory.toString(), CategoryDetails.class);
+            categoriesDetailsMap.put(category.getId(), category);
+        }
+        return categoriesDetailsMap;
+    }
+
+    public Map<Integer, CategoryFulfillmentSetting> getCategoriesFulfillmentSetting(int sellerId) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        JSONArray response = this.httpReader.getCategoriesFulfillmentSetting(sellerId);
+        Map<Integer, CategoryFulfillmentSetting> categoriesDetailsMap = new HashMap<>();
+
+        if (response != null) {
+            for (Object singleCategorySettings : response) {
+                CategoryFulfillmentSetting category = mapper.readValue(singleCategorySettings.toString(), CategoryFulfillmentSetting.class);
+                categoriesDetailsMap.put(category.getCategoryId(), category);
+            }
+        }
+        return categoriesDetailsMap;
     }
 
     private Map<Integer, CategoryWithProductInformation> createCategoryEntity(JSONArray response) {

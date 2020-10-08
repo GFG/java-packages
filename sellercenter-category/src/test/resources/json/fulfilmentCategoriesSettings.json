@@ -1,0 +1,17 @@
+[
+  {
+    "sellerId": 1,
+    "categoryId": 567,
+    "fulfillmentEnabled": false
+  },
+  {
+    "sellerId": 1,
+    "categoryId": 1771,
+    "fulfillmentEnabled": true
+  },
+  {
+    "sellerId": 1,
+    "categoryId": 2379,
+    "fulfillmentEnabled": false
+  }
+]
