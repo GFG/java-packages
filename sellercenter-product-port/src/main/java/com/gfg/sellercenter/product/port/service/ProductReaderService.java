@@ -30,7 +30,7 @@ public class ProductReaderService implements ProductReaderServiceInterface {
     @NotNull
     private final JsonHttpReader jsonReader;
 
-    private static final String API_PATH_PRODUCTS_BY_IDS = "/api/products/v1?product_ids=";
+    private static final String API_PATH_PRODUCTS_BY_IDS = "/api/products/v1";
     private static final String API_PATH_SEARCH_PRODUCTS_OF_SELLER = "/api/sellers/v1";
 
     private static final ObjectMapper productMapper;
@@ -58,7 +58,7 @@ public class ProductReaderService implements ProductReaderServiceInterface {
         }
 
         Map<Integer, Product> result = new HashMap<>();
-        String requestUrl = hostUrl + API_PATH_PRODUCTS_BY_IDS + (new JSONArray(productIds)).toString();
+        String requestUrl = hostUrl + API_PATH_PRODUCTS_BY_IDS + "?product_ids=" + (new JSONArray(productIds)).toString();
         JsonParser parser = productMapper.getFactory().createParser(new URL(requestUrl));
 
         if (parser.nextToken() != JsonToken.START_ARRAY) {
