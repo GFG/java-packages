@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 public class HttpReader {
@@ -21,16 +20,16 @@ public class HttpReader {
     /**
      * This json array represent a list of products and attributes information
      *
-     * @param productIds a list of product ids in order to fetch related attribute which has options which requires a serial number
+     * @param productIds a list of product ids in order to fetch related attribute which has options
+     *     which requires a serial number
      * @return JSONArray It retrieves a json array with a product and attributes information
      * @throws Exception throws an exception when the endpoint is not reachable
      */
     public JSONArray getSerialNumberRequiredAttributesByProductIds(List<Integer> productIds)
             throws Exception {
-        String productIdsConverted =
-                productIds.stream().map(String::valueOf).collect(Collectors.joining(","));
+        String productIdsConverted = (new JSONArray(productIds)).toString();
 
-        return new JSONArray(loadResponse("?product_ids=[" + productIdsConverted + "]"));
+        return new JSONArray(loadResponse("?product_ids=" + productIdsConverted));
     }
 
     private String loadResponse(String extraQuery) throws IOException {

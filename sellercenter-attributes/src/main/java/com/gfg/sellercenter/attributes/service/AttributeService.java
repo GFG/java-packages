@@ -24,6 +24,7 @@ public class AttributeService {
             getSerialNumberRequiredAttributesByProductIds(List<Integer> productIds)
                     throws Exception {
         productIds = productIds.stream().distinct().collect(Collectors.toList());
+
         return createAttributeEntity(
                 this.httpReader.getSerialNumberRequiredAttributesByProductIds(productIds));
     }
@@ -34,19 +35,14 @@ public class AttributeService {
 
         for (Object response : responseArray) {
             JSONObject resp = (JSONObject) response;
-            ProductWithAttributeInformation productWithAttribute =
-                    categoryToProductMap.get(resp.getInt("id"));
-
-            if (null == productWithAttribute) {
-                Map<Integer, AttributeWithOption> attributeWithOption = new HashMap<>();
-                categoryToProductMap.put(
-                        resp.getInt("id"),
-                        new ProductWithAttributeInformation(
-                                resp.getInt("id"),
-                                resp.getString("skuSeller"),
-                                resp.getJSONObject("attributes"),
-                                attributeWithOption));
-            }
+            Map<Integer, AttributeWithOption> attributeWithOption = new HashMap<>();
+            categoryToProductMap.putIfAbsent(
+                    resp.getInt("id"),
+                    new ProductWithAttributeInformation(
+                            resp.getInt("id"),
+                            resp.getString("skuSeller"),
+                            resp.getJSONObject("attributes"),
+                            attributeWithOption));
             this.addAttributeWithOption(
                     categoryToProductMap.get(resp.getInt("id")),
                     resp.getJSONObject("attributeWithOption"));
@@ -54,18 +50,16 @@ public class AttributeService {
 
         return categoryToProductMap;
     }
-    private void addAttributeWithOption(ProductWithAttributeInformation product, JSONObject response) {
+
+    private void addAttributeWithOption(
+            ProductWithAttributeInformation product, JSONObject response) {
 
         Integer attributeId = response.getInt("id");
-        AttributeWithOption attributeWithOption = product.getAttribute().get(attributeId);
-
-        if (null == attributeWithOption) {
-            product.getAttribute()
-                    .put(
-                            attributeId,
-                            new AttributeWithOption(
-                                    attributeId, response.getString("label"), new HashMap<>()));
-        }
+        product.getAttribute()
+                .putIfAbsent(
+                        attributeId,
+                        new AttributeWithOption(
+                                attributeId, response.getString("label"), new HashMap<>()));
         product.getAttribute()
                 .get(attributeId)
                 .getAttributeOptions()

@@ -31,7 +31,7 @@ public class AttributeServiceTest {
                         readerMock.getSerialNumberRequiredAttributesByProductIds(
                                 new ArrayList<>(Arrays.asList(1, 2, 3))))
                 .thenReturn(getFileContent("json/attributesRequireResponse.json"));
-
+        
         AttributeService service = new AttributeService(readerMock);
 
         List<Integer> productIds = new ArrayList<>();

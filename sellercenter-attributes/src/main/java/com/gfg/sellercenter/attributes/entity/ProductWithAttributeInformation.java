@@ -3,7 +3,9 @@ package com.gfg.sellercenter.attributes.entity;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+
 import org.json.JSONObject;
+
 import java.util.Map;
 
 @AllArgsConstructor
