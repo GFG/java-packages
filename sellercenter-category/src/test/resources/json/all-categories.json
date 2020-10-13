@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "name": "Root Category",
+    "srcId": 1,
+    "status": "active",
+    "lft": 1,
+    "rgt": 4762,
+    "visible": true,
+    "fulfillmentVisible": true
+  },
+  {
+    "id": 2,
+    "name": "Computing",
+    "srcId": 2,
+    "status": "active",
+    "lft": 1280,
+    "rgt": 1415,
+    "visible": true,
+    "fulfillmentVisible": true
+  },
+  {
+    "id": 16,
+    "name": "Laptops",
+    "srcId": 16,
+    "status": "active",
+    "lft": 1281,
+    "rgt": 1302,
+    "visible": true,
+    "fulfillmentVisible": true
+  },
+  {
+    "id": 567,
+    "name": "Dress Shoes",
+    "srcId": 567,
+    "status": "deleted",
+    "lft": 3074,
+    "rgt": 3075,
+    "visible": true,
+    "fulfillmentVisible": true
+  },
+  {
+    "id": 1525,
+    "name": "Cameras & Electronics",
+    "srcId": 1525,
+    "status": "active",
+    "lft": 1416,
+    "rgt": 1717,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1526,
+    "name": "Televisions",
+    "srcId": 1526,
+    "status": "active",
+    "lft": 1433,
+    "rgt": 1450,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1670,
+    "name": "Wine, Spirits & Cigars",
+    "srcId": 1670,
+    "status": "active",
+    "lft": 4002,
+    "rgt": 4059,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1671,
+    "name": "Wine",
+    "srcId": 1671,
+    "status": "active",
+    "lft": 4003,
+    "rgt": 4018,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1672,
+    "name": "Beer",
+    "srcId": null,
+    "status": "deleted",
+    "lft": 4019,
+    "rgt": 4020,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1673,
+    "name": "Spirits",
+    "srcId": 1673,
+    "status": "active",
+    "lft": 4021,
+    "rgt": 4056,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1771,
+    "name": "Cameras",
+    "srcId": 1776,
+    "status": "active",
+    "lft": 1417,
+    "rgt": 1432,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1772,
+    "name": "Digital Cameras",
+    "srcId": 1777,
+    "status": "active",
+    "lft": 1418,
+    "rgt": 1419,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1773,
+    "name": "Camcorders",
+    "srcId": 1778,
+    "status": "active",
+    "lft": 1422,
+    "rgt": 1423,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1774,
+    "name": "Professional/SLR Cameras",
+    "srcId": 1779,
+    "status": "active",
+    "lft": 1430,
+    "rgt": 1431,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 1775,
+    "name": "Camera Accessories ",
+    "srcId": 1780,
+    "status": "active",
+    "lft": 1424,
+    "rgt": 1425,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 2378,
+    "name": "Beer",
+    "srcId": null,
+    "status": "active",
+    "lft": 4019,
+    "rgt": 4020,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 2379,
+    "name": "Beer",
+    "srcId": 1672,
+    "status": "active",
+    "lft": 4019,
+    "rgt": 4020,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 2380,
+    "name": "Champagne",
+    "srcId": 2007,
+    "status": "active",
+    "lft": 4004,
+    "rgt": 4005,
+    "visible": true,
+    "fulfillmentVisible": false
+  },
+  {
+    "id": 2381,
+    "name": "Violins",
+    "srcId": 1899,
+    "status": "active",
+    "lft": 1695,
+    "rgt": 1696,
+    "visible": true,
+    "fulfillmentVisible": false
+  }
+]
