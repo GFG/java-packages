@@ -22,7 +22,7 @@ import com.gfg.sellercenter.product.port.infra.JsonHttpReader;
 import com.gfg.sellercenter.product.port.entity.Money;
 import com.gfg.sellercenter.product.port.entity.Price;
 import com.gfg.sellercenter.product.port.entity.SpecialPrice;
-import org.mockserver.client.server.MockServerClient;
+import org.mockserver.client.MockServerClient;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.matchers.Times;
 import org.mockserver.model.Header;
