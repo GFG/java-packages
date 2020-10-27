@@ -11,6 +11,13 @@ import javax.validation.constraints.NotEmpty;
 @Data
 @AllArgsConstructor
 public class Product {
+
+    private final static int SHIPMENT_TYPE_WAREHOUSE = 1;
+
+    private final static int SHIPMENT_TYPE_DROPSHIPMENT = 2;
+
+    private final static int SHIPMENT_TYPE_CROSS_DOCKING = 3;
+
     @NotNull
     private final Integer id;
 
@@ -36,6 +43,8 @@ public class Product {
     private final String variation;
 
     private final Integer primaryCategoryId;
+
+    private final int shipmentType;
 
     public boolean hasSpecialPrice(ZonedDateTime timePoint) {
         return price.getSpecialPrice() != null
@@ -75,5 +84,17 @@ public class Product {
         }
 
         return price.getAmount();
+    }
+
+    public boolean isShipmentTypeWarehouse() {
+        return this.shipmentType == SHIPMENT_TYPE_WAREHOUSE;
+    }
+
+    public boolean isShipmentTypeDropShipment() {
+        return this.shipmentType == SHIPMENT_TYPE_DROPSHIPMENT;
+    }
+
+    public boolean isShipmentTypeCrossDocking() {
+        return this.shipmentType == SHIPMENT_TYPE_CROSS_DOCKING;
     }
 }
