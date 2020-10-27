@@ -55,7 +55,8 @@ public class ProductReaderServiceTest {
                 "Dani super dress 2",
                 null,
                 "3X",
-                4
+                4,
+                2
         );
         product2 = new Product(
                 2,
@@ -74,7 +75,8 @@ public class ProductReaderServiceTest {
                 "Dani Super Skirt",
                 20.22,
                 "XXL/38",
-                11
+                11,
+                3
         );
     }
 

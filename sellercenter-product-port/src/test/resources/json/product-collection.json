@@ -10,6 +10,7 @@
     "name": "Dani super dress 2",
     "variation": "3X",
     "primary_category_id": 4,
+    "fk_shipment_type": 1,
     "categories": "[]",
     "brand_id": 1448,
     "price": {
@@ -45,6 +46,7 @@
     "name": "Dani Super Skirt",
     "variation": "XXL/38",
     "primary_category_id": 11,
+    "fk_shipment_type": 2,
     "categories": "[233]",
     "brand_id": 1374,
     "price": {

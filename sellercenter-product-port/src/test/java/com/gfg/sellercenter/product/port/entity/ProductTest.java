@@ -171,7 +171,8 @@ public class ProductTest {
                 "Jeans",
                 10.00,
                 "40/42",
-                567
+                567,
+                1
         );
     }
 }
