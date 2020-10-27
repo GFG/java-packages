@@ -11,6 +11,8 @@ public interface ProductReaderServiceInterface {
 
     public Map<Integer, Product> getProducts(int[] productIds) throws IOException;
 
+    public Map<Integer, Product> getProducts(int[] productIds, int sellerId) throws IOException;
+
     public Map<Integer, Product> searchProducts(
             int sellerId,
             List<String> statuses,
