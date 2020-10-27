@@ -170,7 +170,8 @@ public class ProductTest {
                 "Test",
                 "Jeans",
                 10.00,
-                "40/42"
+                "40/42",
+                567
         );
     }
 }
