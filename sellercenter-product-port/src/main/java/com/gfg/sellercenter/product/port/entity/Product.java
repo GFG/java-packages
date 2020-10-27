@@ -35,6 +35,8 @@ public class Product {
 
     private final String variation;
 
+    private final Integer primaryCategoryId;
+
     public boolean hasSpecialPrice(ZonedDateTime timePoint) {
         return price.getSpecialPrice() != null
                 && price.getSpecialPrice().getAmount() != null
