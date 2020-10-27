@@ -90,7 +90,7 @@ public class Product {
         return this.shipmentType == SHIPMENT_TYPE_WAREHOUSE;
     }
 
-    public boolean isShipmentTypeDropShipping() {
+    public boolean isShipmentTypeDropShipment() {
         return this.shipmentType == SHIPMENT_TYPE_DROPSHIPMENT;
     }
 
