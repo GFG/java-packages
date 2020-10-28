@@ -59,6 +59,10 @@ public class ProductReaderService implements ProductReaderServiceInterface {
 
         Map<Integer, Product> result = new HashMap<>();
         String requestUrl = hostUrl + API_PATH_PRODUCTS_BY_IDS + "?product_ids=" + (new JSONArray(productIds)).toString();
+        return this.getProductMap(result, requestUrl);
+    }
+
+    private Map<Integer, Product> getProductMap(Map<Integer, Product> result, String requestUrl) throws IOException {
         JsonParser parser = productMapper.getFactory().createParser(new URL(requestUrl));
 
         if (parser.nextToken() != JsonToken.START_ARRAY) {
@@ -71,6 +75,20 @@ public class ProductReaderService implements ProductReaderServiceInterface {
         parser.close();
 
         return result;
+    }
+
+    public Map<Integer, Product> getProducts(int[] productIds, int sellerId) throws IOException {
+        if (productIds.length == 0) {
+            throw new IllegalArgumentException("Product ids can not be empty");
+        }
+
+        Map<Integer, Product> result = new HashMap<>();
+        String requestUrl =
+                hostUrl +
+                API_PATH_PRODUCTS_BY_IDS +
+                "?product_ids=" + (new JSONArray(productIds)).toString() +
+                "&seller_id=" + sellerId;
+        return this.getProductMap(result, requestUrl);
     }
 
     @Override
@@ -92,18 +110,7 @@ public class ProductReaderService implements ProductReaderServiceInterface {
                 onlySyncedParameter
         );
         String requestUrl = hostUrl + API_PATH_SEARCH_PRODUCTS_OF_SELLER + "/" + query;
-        JsonParser parser = productMapper.getFactory().createParser(new URL(requestUrl));
-
-        if (parser.nextToken() != JsonToken.START_ARRAY) {
-            throw new IOException("Not a valid response, missing START_ARRAY");
-        }
-        while (parser.nextToken() == JsonToken.START_OBJECT) {
-            Product product = productMapper.readValue(parser, Product.class);
-            result.put(product.getId(), product);
-        }
-        parser.close();
-
-        return result;
+        return this.getProductMap(result, requestUrl);
     }
 
     public static ProductReaderService getInstance(String hostUrl) {
