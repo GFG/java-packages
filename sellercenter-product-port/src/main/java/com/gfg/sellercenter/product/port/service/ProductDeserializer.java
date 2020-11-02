@@ -60,7 +60,7 @@ public class ProductDeserializer extends StdDeserializer<Product> {
                         : null,
                 productNode.get("variation").textValue(),
                 productNode.get("primary_category_id").intValue(),
-                productNode.get("fk_shipment_type").intValue()
+                productNode.get("shipment_type_id").intValue()
         );
     }
 }
