@@ -1,5 +1,6 @@
 package com.gfg.sellercenter.product.port.service;
 
+import com.gfg.sellercenter.product.port.entity.*;
 import org.json.JSONObject;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,11 +18,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
-import com.gfg.sellercenter.product.port.entity.Product;
 import com.gfg.sellercenter.product.port.infra.JsonHttpReader;
-import com.gfg.sellercenter.product.port.entity.Money;
-import com.gfg.sellercenter.product.port.entity.Price;
-import com.gfg.sellercenter.product.port.entity.SpecialPrice;
 import org.mockserver.client.MockServerClient;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.matchers.Times;
@@ -127,7 +124,7 @@ public class ProductReaderServiceTest {
 
         Map<Integer, Product> result = service.searchProducts(
                 1,
-                Arrays.asList("active","inactive"),
+                Arrays.asList(Status.ACTIVE, Status.INACTIVE),
                 Arrays.asList(1, 5),
                 true
         );

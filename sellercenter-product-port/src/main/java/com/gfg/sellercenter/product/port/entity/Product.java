@@ -12,11 +12,11 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class Product {
 
-    private final static int SHIPMENT_TYPE_WAREHOUSE = 1;
+    private static final int SHIPMENT_TYPE_WAREHOUSE = 1;
 
-    private final static int SHIPMENT_TYPE_DROPSHIPMENT = 2;
+    private static final int SHIPMENT_TYPE_DROPSHIPMENT = 2;
 
-    private final static int SHIPMENT_TYPE_CROSS_DOCKING = 3;
+    private static final int SHIPMENT_TYPE_CROSS_DOCKING = 3;
 
     @NotNull
     private final Integer id;

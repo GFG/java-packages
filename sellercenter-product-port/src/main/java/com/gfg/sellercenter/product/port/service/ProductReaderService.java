@@ -3,9 +3,11 @@ package com.gfg.sellercenter.product.port.service;
 import java.net.URL;
 import java.util.*;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.gfg.sellercenter.product.port.entity.Status;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -94,12 +96,12 @@ public class ProductReaderService implements ProductReaderServiceInterface {
     @Override
     public Map<Integer, Product> searchProducts(
             int sellerId,
-            List<String> statuses,
+            List<Status> statuses,
             List<Integer> shipmentTypes,
             boolean onlySynced
     ) throws IOException {
         Map<Integer, Product> result = new HashMap<>();
-        String statusesRequestParameter = (new JSONArray(statuses)).toString();
+        String statusesRequestParameter = (new JSONArray(statuses.stream().map(Status::getStatus).collect(Collectors.toList()))).toString();
         String shipmentTypesParameter = (new JSONArray(shipmentTypes)).toString();
         int onlySyncedParameter = onlySynced ? 1 : 0;
         String query = String.format(
@@ -111,6 +113,11 @@ public class ProductReaderService implements ProductReaderServiceInterface {
         );
         String requestUrl = hostUrl + API_PATH_SEARCH_PRODUCTS_OF_SELLER + "/" + query;
         return this.getProductMap(result, requestUrl);
+    }
+
+    @Override
+    public Map<Integer, Product> searchSyncedProducts(int sellerId, List<Status> statuses, List<Integer> shipmentTypes) throws IOException {
+        return searchProducts(sellerId, statuses, shipmentTypes, true);
     }
 
     public static ProductReaderService getInstance(String hostUrl) {
