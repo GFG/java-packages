@@ -23,11 +23,11 @@ public class CreateCommandTest {
                 null,
                 new ArrayList<>(Arrays.asList(
                         new Item(
-                                "some sku", 13, "123", 123.4, "vafds", "dfas", "dfsads",
+                                "some sku", 13, "123", "vafds", "dfas", "dfsads",
                                 new ArrayList<>(Arrays.asList(new Attribute("attributeLabel1", "some value 1"), new Attribute("attributeLabel2", "some value 2")))
                         ),
                         new Item(
-                                "some sku 2", 5, "567.0", 65.9, null, null, null,
+                                "some sku 2", 5, "567.0", null, null, null,
                                 new ArrayList<>()
                         )
                 )),

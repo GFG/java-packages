@@ -23,10 +23,6 @@ public class Item {
     @NotNull
     private String unitPrice;
 
-    @JsonProperty("seller_charge")
-    @NotNull
-    private Double sellerCharge;
-
     @JsonProperty("label_code")
     private String labelCode;
 
