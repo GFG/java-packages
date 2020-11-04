@@ -1,0 +1,138 @@
+{
+  "data": [
+    {
+      "id": "0c4c3ae9-a58e-4add-9ab6-ba2d7042d21a",
+      "source": "orderservice",
+      "userId": 2,
+      "sellerId": 12,
+      "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83469",
+      "status": "QUEUED",
+      "kind": "EXPORT",
+      "fileAction": "consignment_file_import",
+      "filePath": "aws://s3/some/path/file.pdf",
+      "checksum": "adasds-dadsd-fff",
+      "metaData": {
+        "some": "field",
+        "error": 100,
+        "nested": {
+          "filed": 1
+        }
+      },
+      "rawName": "file.pdf",
+      "createdAt": "2020-10-30T11:01:35.079839+01:00",
+      "updatedAt": "2020-10-30T11:01:35.080348+01:00",
+      "expiresAt": "2021-01-01T01:02:02+01:00"
+    },
+    {
+      "id": "621c7698-b623-4600-aa94-f21a84df7d47",
+      "source": "orderservice",
+      "userId": 2,
+      "sellerId": 12,
+      "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83469",
+      "status": "FINISHED",
+      "kind": "EXPORT",
+      "fileAction": "consignment_file_import",
+      "filePath": "aws://s3/some/path/file.pdf",
+      "checksum": "adasds-dadsd-fff",
+      "metaData": {
+        "some": "field",
+        "error": 100,
+        "field": {
+          "2nd": "val2",
+          "23nd": "val3",
+          "some": "val"
+        },
+        "nested": {
+          "filed": 1
+        }
+      },
+      "rawName": "file.pdf",
+      "createdAt": "2020-10-27T08:38:25.752979+01:00",
+      "updatedAt": "2020-10-30T11:05:15.237342+01:00",
+      "expiresAt": "2021-01-01T00:02:02+01:00"
+    },
+    {
+      "id": "3802005e-72c3-4ae2-bac8-45c7ad8346c8",
+      "source": "orderservice",
+      "userId": 2,
+      "sellerId": 12,
+      "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83469",
+      "status": "FINISHED",
+      "kind": "EXPORT",
+      "fileAction": "consignment_file_import",
+      "filePath": "aws://s3/some/path/file.pdf",
+      "checksum": "adasds-dadsd-fff",
+      "metaData": {
+        "some": "field",
+        "error": 100,
+        "field": {
+          "2nd": "val2",
+          "some": "val"
+        },
+        "nested": {
+          "filed": 1
+        }
+      },
+      "rawName": "file.pdf",
+      "createdAt": "2020-11-03T11:33:55.107942+01:00",
+      "updatedAt": "2020-11-03T12:02:13.817923+01:00",
+      "expiresAt": "2021-01-01T01:02:02+01:00"
+    },
+    {
+      "id": "7b93ec97-18f6-40e7-9e20-248c9ec41ff3",
+      "source": "orderservice",
+      "userId": 2,
+      "sellerId": 12,
+      "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83469",
+      "status": "QUEUED",
+      "kind": "IMPORT",
+      "fileAction": "fileAction",
+      "filePath": "filePath",
+      "checksum": "checksum",
+      "metaData": "test",
+      "rawName": "rawName",
+      "createdAt": "2020-11-04T14:29:58.602845+01:00",
+      "updatedAt": "2020-11-04T14:29:58.602933+01:00",
+      "expiresAt": "2021-01-01T01:02:02+01:00"
+    },
+    {
+      "id": "a151737e-53f0-4f7a-9ce8-64783ce33edb",
+      "source": "orderservice",
+      "userId": 2,
+      "sellerId": 12,
+      "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83469",
+      "status": "QUEUED",
+      "kind": "IMPORT",
+      "fileAction": "fileAction",
+      "filePath": "filePath",
+      "checksum": "checksum",
+      "metaData": "test",
+      "rawName": "rawName",
+      "createdAt": "2020-11-04T14:30:37.956603+01:00",
+      "updatedAt": "2020-11-04T14:30:37.956648+01:00",
+      "expiresAt": "2021-01-01T01:02:02+01:00"
+    },
+    {
+      "id": "c9326ce6-3a92-4e66-b634-83e3e52286ba",
+      "source": "orderservice",
+      "userId": 2,
+      "sellerId": 12,
+      "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83458",
+      "status": "EXPIRED",
+      "kind": "IMPORT",
+      "fileAction": "fileAction",
+      "filePath": "filePath",
+      "checksum": "checksum",
+      "metaData": "test",
+      "rawName": "rawName",
+      "createdAt": "2020-11-04T14:31:14.468953+01:00",
+      "updatedAt": "2020-11-04T14:43:10.814183+01:00",
+      "expiresAt": "2021-01-01T01:02:02+01:00"
+    }
+  ],
+  "pagination": {
+    "offset": 0,
+    "limit": 100,
+    "total": 6
+  }
+}

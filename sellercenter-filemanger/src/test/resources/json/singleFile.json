@@ -1,0 +1,28 @@
+{
+  "id": "621c7698-b623-4600-aa94-f21a84df7d47",
+  "source": "orderservice",
+  "userId": 2,
+  "sellerId": 12,
+  "sellerUuid": "4e8c4328-1130-4787-8e0a-c94e15f83469",
+  "status": "FINISHED",
+  "kind": "EXPORT",
+  "fileAction": "consignment_file_import",
+  "filePath": "aws://s3/some/path/file.pdf",
+  "checksum": "adasds-dadsd-fff",
+  "metaData": {
+    "some": "field",
+    "error": 100,
+    "field": {
+      "2nd": "val2",
+      "23nd": "val3",
+      "some": "val"
+    },
+    "nested": {
+      "filed": 1
+    }
+  },
+  "rawName": "file.pdf",
+  "createdAt": "2020-10-27T08:38:25.752979+01:00",
+  "updatedAt": "2020-10-30T11:05:15.237342+01:00",
+  "expiresAt": "2021-01-01T00:02:02+01:00"
+}
