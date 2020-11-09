@@ -14,7 +14,7 @@ public class CategoryDetails implements Serializable {
 
     @NotNull private String name;
 
-    private Integer srcId;
+    private String srcId;
 
     @NotNull private CategoryStatus status;
 

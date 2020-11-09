@@ -105,11 +105,12 @@ public class SellerCenterReaderTest {
         // check root category
         assertEquals(1, categories.get(1).getId());
         assertEquals("Root Category", categories.get(1).getName());
-        assertEquals(1, categories.get(1).getSrcId().intValue());
+        assertEquals("1", categories.get(1).getSrcId());
         assertTrue(categories.get(1).isFulfillmentVisible());
 
         // check some normal category
         assertEquals(CategoryStatus.ACTIVE, categories.get(1673).getStatus());
+        assertEquals("1673", categories.get(1673).getSrcId());
         assertEquals(4021, categories.get(1673).getLft());
         assertEquals(4056, categories.get(1673).getRgt());
         assertFalse(categories.get(1673).isFulfillmentVisible());

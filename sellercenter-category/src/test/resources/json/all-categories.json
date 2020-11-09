@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Root Category",
-    "srcId": 1,
+    "srcId": "1",
     "status": "active",
     "lft": 1,
     "rgt": 4762,
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "name": "Computing",
-    "srcId": 2,
+    "srcId": "2",
     "status": "active",
     "lft": 1280,
     "rgt": 1415,
@@ -22,7 +22,7 @@
   {
     "id": 16,
     "name": "Laptops",
-    "srcId": 16,
+    "srcId": "16",
     "status": "active",
     "lft": 1281,
     "rgt": 1302,
@@ -32,7 +32,7 @@
   {
     "id": 567,
     "name": "Dress Shoes",
-    "srcId": 567,
+    "srcId": "567",
     "status": "deleted",
     "lft": 3074,
     "rgt": 3075,
@@ -42,7 +42,7 @@
   {
     "id": 1525,
     "name": "Cameras & Electronics",
-    "srcId": 1525,
+    "srcId": "1525",
     "status": "active",
     "lft": 1416,
     "rgt": 1717,
@@ -52,7 +52,7 @@
   {
     "id": 1526,
     "name": "Televisions",
-    "srcId": 1526,
+    "srcId": "1526",
     "status": "active",
     "lft": 1433,
     "rgt": 1450,
@@ -62,7 +62,7 @@
   {
     "id": 1670,
     "name": "Wine, Spirits & Cigars",
-    "srcId": 1670,
+    "srcId": "1670",
     "status": "active",
     "lft": 4002,
     "rgt": 4059,
@@ -72,7 +72,7 @@
   {
     "id": 1671,
     "name": "Wine",
-    "srcId": 1671,
+    "srcId": "1671",
     "status": "active",
     "lft": 4003,
     "rgt": 4018,
@@ -92,7 +92,7 @@
   {
     "id": 1673,
     "name": "Spirits",
-    "srcId": 1673,
+    "srcId": "1673",
     "status": "active",
     "lft": 4021,
     "rgt": 4056,
@@ -102,7 +102,7 @@
   {
     "id": 1771,
     "name": "Cameras",
-    "srcId": 1776,
+    "srcId": "1776",
     "status": "active",
     "lft": 1417,
     "rgt": 1432,
@@ -112,7 +112,7 @@
   {
     "id": 1772,
     "name": "Digital Cameras",
-    "srcId": 1777,
+    "srcId": "1777",
     "status": "active",
     "lft": 1418,
     "rgt": 1419,
@@ -122,7 +122,7 @@
   {
     "id": 1773,
     "name": "Camcorders",
-    "srcId": 1778,
+    "srcId": "1778",
     "status": "active",
     "lft": 1422,
     "rgt": 1423,
@@ -132,7 +132,7 @@
   {
     "id": 1774,
     "name": "Professional/SLR Cameras",
-    "srcId": 1779,
+    "srcId": "1779",
     "status": "active",
     "lft": 1430,
     "rgt": 1431,
@@ -142,7 +142,7 @@
   {
     "id": 1775,
     "name": "Camera Accessories ",
-    "srcId": 1780,
+    "srcId": "1780",
     "status": "active",
     "lft": 1424,
     "rgt": 1425,
@@ -162,7 +162,7 @@
   {
     "id": 2379,
     "name": "Beer",
-    "srcId": 1672,
+    "srcId": "1672",
     "status": "active",
     "lft": 4019,
     "rgt": 4020,
@@ -172,7 +172,7 @@
   {
     "id": 2380,
     "name": "Champagne",
-    "srcId": 2007,
+    "srcId": "2007",
     "status": "active",
     "lft": 4004,
     "rgt": 4005,
@@ -182,7 +182,7 @@
   {
     "id": 2381,
     "name": "Violins",
-    "srcId": 1899,
+    "srcId": "to test that it works even with any string src Ids",
     "status": "active",
     "lft": 1695,
     "rgt": 1696,
