@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
@@ -58,11 +59,11 @@ public class SellerReaderServiceTest {
     }
 
     private Seller getSeller1() {
-        return new Seller(1, "seller-1@mailinator.com", "Midcom", "Midcom", "NG1003C", "117");
+        return new Seller(1, "seller-1@mailinator.com", "Midcom", "Midcom", "NG1003C", "117", UUID.fromString("5c653d5f-ad1c-4cb0-8a7b-f7929b150cb3"));
     }
 
     private Seller getSeller2() {
-        return new Seller(2, null, "Comércio Digital", null, "NG1003X", "137");
+        return new Seller(2, null, "Comércio Digital", null, "NG1003X", "137", UUID.fromString("f091c802-be6b-434e-9446-42ae523d5315"));
     }
 
     private String readFile(String fileName) throws IOException {
