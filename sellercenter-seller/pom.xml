@@ -6,7 +6,7 @@
 
     <groupId>com.gfg.sellercenter.seller</groupId>
     <artifactId>sellercenter-seller</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
 
     <name>sellercenter-seller</name>
     <url>https://github.com/GFG/java-packages</url>
