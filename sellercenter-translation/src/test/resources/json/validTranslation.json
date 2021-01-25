@@ -1,0 +1,9 @@
+{
+  "status": true,
+  "payload": {
+    "namespace": "login",
+    "language": "fallback",
+    "key": "restore-password.action.loading.label",
+    "value": "Restoring password..."
+  }
+}
