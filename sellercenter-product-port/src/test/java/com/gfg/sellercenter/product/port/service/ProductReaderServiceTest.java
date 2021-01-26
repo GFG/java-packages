@@ -10,13 +10,12 @@ import static org.junit.Assert.assertEquals;
 import static org.mockserver.integration.ClientAndServer.startClientAndServer;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Array;
 import java.time.ZonedDateTime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import com.gfg.sellercenter.product.port.infra.JsonHttpReader;
 import org.mockserver.client.MockServerClient;
@@ -73,12 +72,12 @@ public class ProductReaderServiceTest {
                 20.22,
                 "XXL/38",
                 11,
-                3
+                2
         );
     }
 
     @Test
-    public void shouldReadProduct() throws IOException {
+    public void shouldReadProduct() throws IOException, URISyntaxException {
         JsonHttpReader jsonReaderMock = mock(JsonHttpReader.class);
         when(jsonReaderMock.readOne("http://localhost:8081/api/products/v1/1"))
                 .thenReturn(
@@ -86,7 +85,8 @@ public class ProductReaderServiceTest {
                 );
 
         ProductReaderService service = new ProductReaderService(
-                "http://localhost:8081",
+                "localhost:8081",
+                "http",
                 jsonReaderMock
         );
 
@@ -94,7 +94,46 @@ public class ProductReaderServiceTest {
     }
 
     @Test
-    public void searchProductsFormsCorrectUrl() throws IOException {
+    public void getProducts() throws URISyntaxException, IOException {
+        JsonHttpReader jsonReaderMock = mock(JsonHttpReader.class);
+
+        new MockServerClient("localhost", MOCK_SERVER_POST)
+                .when(
+                        HttpRequest.request()
+                                .withMethod("GET")
+                                .withPath("/api/products-by-seller-skus/v1")
+                                .withQueryStringParameter("product_seller_skus", "[\"KLIO9_DELETED_2018-01-31_01-53-19\"]")
+                                .withQueryStringParameter("seller_id", "1")
+                        ,
+                        Times.exactly(1)
+                )
+                .respond(
+                        HttpResponse.response()
+                                .withStatusCode(200)
+                                .withHeaders(
+                                        new Header("Content-Type", "application/json")
+                                )
+                                .withBody(readFile("product-collection.json"))
+                );
+
+        ProductReaderService service = new ProductReaderService(
+                "localhost:" + MOCK_SERVER_POST,
+                "http",
+                jsonReaderMock
+        );
+
+        Map<String, Product> expected = new HashMap<>();
+        List<String> sellerSkus = new ArrayList<>();
+        sellerSkus.add("KLIO9_DELETED_2018-01-31_01-53-19");
+
+        expected.put(product1.getSellerSku(), product1);
+        expected.put(product2.getSellerSku(), product2);
+
+        assertEquals(expected, service.getProducts(sellerSkus, 1));
+    }
+
+    @Test
+    public void searchProductsFormsCorrectUrl() throws IOException, URISyntaxException {
         new MockServerClient("localhost", MOCK_SERVER_POST)
                 .when(
                         HttpRequest.request()
@@ -118,7 +157,8 @@ public class ProductReaderServiceTest {
         JsonHttpReader jsonReaderMock = mock(JsonHttpReader.class);
 
         ProductReaderService service = new ProductReaderService(
-                "http://localhost:" + MOCK_SERVER_POST,
+                "localhost:" + MOCK_SERVER_POST,
+                "http",
                 jsonReaderMock
         );
 
@@ -132,7 +172,7 @@ public class ProductReaderServiceTest {
     }
 
     @Test
-    public void searchProductsFormsCorrectUrlWhenParametersAreEmpty() throws IOException {
+    public void searchProductsFormsCorrectUrlWhenParametersAreEmpty() throws IOException, URISyntaxException {
         new MockServerClient("localhost", MOCK_SERVER_POST)
                 .when(
                         HttpRequest.request()
@@ -156,7 +196,8 @@ public class ProductReaderServiceTest {
         JsonHttpReader jsonReaderMock = mock(JsonHttpReader.class);
 
         ProductReaderService service = new ProductReaderService(
-                "http://localhost:" + MOCK_SERVER_POST,
+                "localhost:" + MOCK_SERVER_POST,
+                "http",
                 jsonReaderMock
         );
 
@@ -175,7 +216,7 @@ public class ProductReaderServiceTest {
 
     @Test
     public void getInstance() {
-        ProductReaderService productReaderService = ProductReaderService.getInstance("some host url");
+        ProductReaderService productReaderService = ProductReaderService.getInstance("some host url", "http");
         assertEquals(ProductReaderService.class, productReaderService.getClass());
     }
 }

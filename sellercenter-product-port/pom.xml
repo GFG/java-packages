@@ -6,7 +6,7 @@
 
   <groupId>com.gfg.sellercenter.product.port</groupId>
   <artifactId>sellercenter-product-port</artifactId>
-  <version>2.4-SNAPSHOT</version>
+  <version>3.0</version>
 
   <name>sellercenter-product-port</name>
   <url>https://github.com/GFG/java-packages</url>
@@ -22,11 +22,10 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.1</version>
-      <scope>test</scope>
-    </dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>[4.13.1,)</version>
+  </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -81,6 +80,12 @@
         <artifactId>mockserver-client-java</artifactId>
         <version>5.11.1</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.5.13</version>
+          <scope>compile</scope>
       </dependency>
   </dependencies>
 
