@@ -1,8 +1,7 @@
 package com.gfg.sellercenter.translation.entity;
 
-import lombok.*;
-
 import javax.validation.constraints.NotNull;
+import lombok.*;
 
 @Builder
 @Getter
@@ -11,12 +10,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Translation {
-    @NotNull
-    private String namespace;
-    @NotNull
-    private String language;
-    @NotNull
-    private String key;
-    @NotNull
-    private String message;
+  @NotNull private String namespace;
+  @NotNull private String language;
+  @NotNull private String key;
+  @NotNull private String message;
 }
