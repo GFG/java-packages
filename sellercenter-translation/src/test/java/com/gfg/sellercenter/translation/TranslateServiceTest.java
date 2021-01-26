@@ -1,65 +1,74 @@
 package com.gfg.sellercenter.translation;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import com.gfg.sellercenter.translation.entity.Translation;
+import com.gfg.sellercenter.translation.entity.TranslationRequest;
 import com.gfg.sellercenter.translation.reader.HttpReader;
 import com.gfg.sellercenter.translation.service.TranslateService;
-import org.json.JSONObject;
-import org.junit.Test;
-
+import com.gfg.sellercenter.translation.service.Translator;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
+import org.junit.Test;
 
 public class TranslateServiceTest {
 
-    private static final String RESOURCE_PATH = "src/test/resources/";
+  private static final String RESOURCE_PATH = "src/test/resources/";
 
-    @Test
-    public void getValidTranslation() throws IOException, URISyntaxException {
-        HttpReader readerMock = mock(HttpReader.class);
-        when(readerMock.getTranslation("en-us", "login:restore-password.action.loading.label")).thenReturn(
-            this.getFileContent("json/validTranslation.json")
-        );
+  @Test
+  public void getValidTranslation() throws IOException, URISyntaxException {
 
-        TranslateService svc = new TranslateService(readerMock);
+    HttpReader realReader = new HttpReader("localhost:4001", "http");
+    Translator translator = new TranslateService(realReader);
+    List<TranslationRequest> list = new ArrayList<>();
 
-        Translation trl = svc.getTranslation("en-us", "login:restore-password.action.loading.label");
+    Map<String, String> map = (new HashMap<>());
+    map.put("venture_name", "Marketplace");
+    list.add(
+        TranslationRequest.builder()
+            .key("fulfilment:attribute.deliveryType.send.option.label")
+            .params(map)
+            .build());
 
-        assertEquals(
-            new Translation(
-                "login",
-                "fallback",
-                "restore-password.action.loading.label",
-                "Restoring password..."
-            ),
-            trl
-        );
+    translator.getTranslations("en-us", list);
 
-    }
+    HttpReader readerMock = mock(HttpReader.class);
+    when(readerMock.getTranslation("en-us", "login:restore-password.action.loading.label"))
+        .thenReturn(this.getFileContent("json/validTranslation.json"));
 
-    @Test
-    public void getInvalidTranslation() throws IOException, URISyntaxException {
-        HttpReader readerMock = mock(HttpReader.class);
-        when(readerMock.getTranslation("en-us", "login:restore-password.action.loading")).thenReturn(
-            this.getFileContent("json/invalidTranslation.json")
-        );
+    Translator svc = new TranslateService(readerMock);
 
-        TranslateService svc = new TranslateService(readerMock);
+    Translation trl = svc.getTranslation("en-us", "login:restore-password.action.loading.label");
 
-        Translation trl = svc.getTranslation("en-us", "login:restore-password.action.loading");
+    assertEquals(
+        new Translation(
+            "login", "fallback", "restore-password.action.loading.label", "Restoring password..."),
+        trl);
+  }
 
-        assertNull(trl);
+  @Test
+  public void getInvalidTranslation() throws IOException, URISyntaxException {
+    HttpReader readerMock = mock(HttpReader.class);
+    when(readerMock.getTranslation("en-us", "login:restore-password.action.loading"))
+        .thenReturn(this.getFileContent("json/invalidTranslation.json"));
 
-    }
+    TranslateService svc = new TranslateService(readerMock);
 
-    private JSONObject getFileContent(String filename) throws IOException {
-        return new JSONObject(
-                new String(Files.readAllBytes(Paths.get(RESOURCE_PATH + filename)))
-        );
-    }
+    Translation trl = svc.getTranslation("en-us", "login:restore-password.action.loading");
+
+    assertNull(trl);
+  }
+
+  private JSONObject getFileContent(String filename) throws IOException {
+    return new JSONObject(new String(Files.readAllBytes(Paths.get(RESOURCE_PATH + filename))));
+  }
 }
