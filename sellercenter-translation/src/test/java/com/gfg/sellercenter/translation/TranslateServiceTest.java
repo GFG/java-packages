@@ -26,21 +26,6 @@ public class TranslateServiceTest {
 
   @Test
   public void getValidTranslation() throws IOException, URISyntaxException {
-
-    HttpReader realReader = new HttpReader("localhost:4001", "http");
-    Translator translator = new TranslateService(realReader);
-    List<TranslationRequest> list = new ArrayList<>();
-
-    Map<String, String> map = (new HashMap<>());
-    map.put("venture_name", "Marketplace");
-    list.add(
-        TranslationRequest.builder()
-            .key("fulfilment:attribute.deliveryType.send.option.label")
-            .params(map)
-            .build());
-
-    translator.getTranslations("en-us", list);
-
     HttpReader readerMock = mock(HttpReader.class);
     when(readerMock.getTranslation("en-us", "login:restore-password.action.loading.label"))
         .thenReturn(this.getFileContent("json/validTranslation.json"));
