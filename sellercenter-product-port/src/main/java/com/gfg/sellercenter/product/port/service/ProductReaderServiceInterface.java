@@ -13,7 +13,7 @@ public interface ProductReaderServiceInterface {
 
     Map<Integer, Product> getProducts(int[] productIds) throws IOException, URISyntaxException;
 
-    Map<Integer, Product> getProducts(int[] productIds, int sellerId) throws IOException;
+    Map<Integer, Product> getProducts(int[] productIds, int sellerId) throws IOException, URISyntaxException;
 
     Map<String, Product> getProducts(List<String> sellerSkus,int sellerId) throws URISyntaxException, IOException;
 

@@ -127,18 +127,17 @@ public class ProductReaderService implements ProductReaderServiceInterface {
         return result;
     }
 
-    public Map<Integer, Product> getProducts(int[] productIds, int sellerId) throws IOException {
+    public Map<Integer, Product> getProducts(int[] productIds, int sellerId) throws IOException, URISyntaxException {
         if (productIds.length == 0) {
             throw new IllegalArgumentException("Product ids can not be empty");
         }
 
         Map<Integer, Product> result = new HashMap<>();
-        String requestUrl =
-                hostUrl +
-                API_PATH_PRODUCTS_BY_IDS +
-                "?product_ids=" + (new JSONArray(productIds)).toString() +
-                "&seller_id=" + sellerId;
-        return this.getProductMap(result, requestUrl);
+
+        URIBuilder uriBuilder = this.getURIBuilder(API_PATH_PRODUCTS_BY_IDS);
+        uriBuilder.addParameter("product_ids", (new JSONArray(productIds)).toString())
+                .addParameter("seller_id", String.valueOf(sellerId));
+        return this.getProductMap(result, uriBuilder.build().toURL().toString());
     }
 
     @Override

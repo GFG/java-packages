@@ -6,7 +6,7 @@
 
   <groupId>com.gfg.sellercenter.product.port</groupId>
   <artifactId>sellercenter-product-port</artifactId>
-  <version>3.0</version>
+  <version>3.0.1</version>
 
   <name>sellercenter-product-port</name>
   <url>https://github.com/GFG/java-packages</url>
