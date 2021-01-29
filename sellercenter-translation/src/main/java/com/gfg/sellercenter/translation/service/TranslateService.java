@@ -63,6 +63,6 @@ public class TranslateService implements Translator {
             .namespace(responsePayload.getString("namespace"))
             .message(responsePayload.getString("value"))
             .build();
-    map.put(responsePayload.getString("key"), trl);
+    map.put(String.format("%s:%s", trl.getNamespace(), trl.getKey()), trl);
   }
 }

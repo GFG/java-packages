@@ -72,7 +72,6 @@ public class HttpReader {
     try (InputStream stream = response.getEntity().getContent()) {
       BufferedReader bufferedReader =
           new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
-      this.getHttpClient().close();
       return new JSONObject(toJsonString(bufferedReader));
     }
   }
