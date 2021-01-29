@@ -5,7 +5,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.gfg.sellercenter.translation.entity.Translation;
-import com.gfg.sellercenter.translation.entity.TranslationRequest;
 import com.gfg.sellercenter.translation.reader.HttpReader;
 import com.gfg.sellercenter.translation.service.TranslateService;
 import com.gfg.sellercenter.translation.service.Translator;
@@ -13,10 +12,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.json.JSONObject;
 import org.junit.Test;
 
