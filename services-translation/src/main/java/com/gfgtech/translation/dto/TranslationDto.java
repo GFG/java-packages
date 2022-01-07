@@ -4,6 +4,7 @@ import java.util.List;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.jackson.Jacksonized;
+import org.springframework.util.CollectionUtils;
 
 /** @author Claudiu MAN */
 @Getter
@@ -13,11 +14,7 @@ import lombok.extern.jackson.Jacksonized;
 public class TranslationDto {
     List<TranslationPayload> payload;
 
-    public boolean isTranslationPayloadNull() {
-        return payload == null;
-    }
-
     public boolean isTranslationPayloadEmpty() {
-        return payload.isEmpty();
+        return CollectionUtils.isEmpty(payload);
     }
 }
