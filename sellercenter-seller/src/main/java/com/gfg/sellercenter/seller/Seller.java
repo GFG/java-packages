@@ -1,5 +1,6 @@
 package com.gfg.sellercenter.seller;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @EqualsAndHashCode
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Seller implements Serializable {
     @NotNull
     private Integer id;
