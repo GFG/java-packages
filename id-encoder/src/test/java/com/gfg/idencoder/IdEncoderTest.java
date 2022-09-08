@@ -18,6 +18,7 @@ public class IdEncoderTest {
                 {5419L, "10004EU"},
                 {1317L, "100012M"},
                 {573437L, "100DD3X"},
+                {100000062L, "11WMCOM"},
         });
     }
 
