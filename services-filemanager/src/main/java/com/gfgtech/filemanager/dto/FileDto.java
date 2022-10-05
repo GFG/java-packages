@@ -25,5 +25,5 @@ public class FileDto {
   String checksum;
   String rawName;
   String filePath;
-  UUID referencedFileUuId;
+  UUID referencedFileUuid;
 }
