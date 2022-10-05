@@ -19,5 +19,5 @@ public class FileUpdateDto {
 
   Map<String, Object> metadata;
 
-  UUID referencedFileUuId;
+  UUID referencedFileUuid;
 }
