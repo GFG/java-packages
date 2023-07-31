@@ -6,7 +6,7 @@
 
     <groupId>com.gfg.sellercenter.filemanger</groupId>
     <artifactId>sellercenter-filemanger</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
 
     <name>sellercenter-filemanger</name>
     <url>https://github.com/GFG/java-packages</url>
