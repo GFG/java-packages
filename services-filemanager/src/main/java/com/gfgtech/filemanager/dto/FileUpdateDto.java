@@ -20,4 +20,6 @@ public class FileUpdateDto {
   Map<String, Object> metadata;
 
   UUID referencedFileUuid;
+
+  String rawName;
 }
