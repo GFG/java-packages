@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.net.URI;
 import java.util.UUID;
 
-@FeignClient(value = "sellerCenterClient", primary = false)
+@FeignClient(value = "sellerCenterClient", url = "${app.seller-center.base-url}", primary = false)
 public interface SellerCenterClient {
 
   @GetMapping(value = "${app.seller-center.get-categories}")
