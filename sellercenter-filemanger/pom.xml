@@ -6,7 +6,7 @@
 
     <groupId>com.gfg.sellercenter.filemanger</groupId>
     <artifactId>sellercenter-filemanger</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
 
     <name>sellercenter-filemanger</name>
     <url>https://github.com/GFG/java-packages</url>
@@ -15,8 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>11</java.version>
-        <jackson.version>2.12.7.1</jackson.version>
+        <java.version>21</java.version>
+        <jackson.version>2.12.7</jackson.version>
         <jackson-bom.version>${jackson.version}</jackson-bom.version>
     </properties>
 

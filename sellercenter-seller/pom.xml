@@ -6,7 +6,7 @@
 
     <groupId>com.gfg.sellercenter.seller</groupId>
     <artifactId>sellercenter-seller</artifactId>
-    <version>1.2</version>
+    <version>1.2.1</version>
 
     <name>sellercenter-seller</name>
     <url>https://github.com/GFG/java-packages</url>
@@ -15,8 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <java.version>11</java.version>
-        <jackson.version>2.12.7.1</jackson.version>
+        <java.version>21</java.version>
+        <jackson.version>2.12.7</jackson.version>
         <jackson-bom.version>${jackson.version}</jackson-bom.version>
     </properties>
 
