@@ -10,7 +10,7 @@ permissions:
 jobs:
   rule_check:
     runs-on: [self-hosted]
-    if: ${{ false || github.actor != 'github-actions[bot]' }}
+    if: ${{ github.actor != 'github-actions[bot]' }}
     env:
       BEARER_DIFF_BASE_BRANCH: master
     steps:
