@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   rule_check:
-    runs-on: [self-hosted]
+    runs-on: [k8s-runner-service-team-public, self-hosted]
     if: ${{ github.actor != 'github-actions[bot]' }}
     env:
       BEARER_DIFF_BASE_BRANCH: master
