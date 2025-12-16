@@ -6,7 +6,7 @@
 
     <groupId>com.gfg.sellercenter.attributes</groupId>
     <artifactId>sellercenter-attributes</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>sellercenter.attributes</name>
     <url>https://github.com/GFG/java-packages</url>
 
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20230227</version>
+            <version>20231013</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
